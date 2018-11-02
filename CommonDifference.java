@@ -12,7 +12,7 @@ public class CommonDifference {
          return -1;
       }
       else {
-         return cd;
+          return cd;
       }
    }
 }
