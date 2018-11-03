@@ -12,6 +12,8 @@ public class PracticeItProblems {
       printSquare(1,5);
       System.out.println(filter(56665565, 6));
       System.out.println(countWords("  T'was brillig, and the *$&*#$   toves     "));        
+      System.out.println(assertions(151));        
+
    }
       
    public static int weave(int a, int b) {
@@ -151,6 +153,24 @@ public class PracticeItProblems {
       num/=10;
       }
       return result;
+   }
+   // Finds largest prime factor of n
+   public static int assertions(int n) {
+      int x = 2;
+      // Point A
+      while (x < n) {
+      	// Point B
+      	if (n % x == 0) {
+      		n = n / x;
+      		x = 2;
+      		// Point C
+      	} else {
+      		x++;
+      		  // Point D
+      	}
+      }
+      // Point E
+      return n;
    }
 }
 
