@@ -12,7 +12,9 @@ public class PracticeItProblems {
       printSquare(1,5);
       System.out.println(filter(56665565, 6));
       System.out.println(countWords("  T'was brillig, and the *$&*#$   toves     "));        
-      System.out.println(assertions(151));        
+      System.out.println(assertions(151));  
+      System.out.println(hasOddEven(2, 5, 6));        
+      
 
    }
       
@@ -45,20 +47,24 @@ public class PracticeItProblems {
    }
    
            
-            
-   
    public static void printStripped(String text) {
       String result = "";
-      int first = text.indexOf("<");
-      while (text.indexOf("<") != -1 ) {
-         int last = text.indexOf(">", first + 1);
-         text = text.substring(0,first) + text.substring(last+1,text.length());
-         first = text.indexOf("<");
-         
-         
+      boolean inComment = false;
+      for (int i = 0; i < text.length(); i++) {
+         if( inComment && text.charAt(i) == '>') {
+            inComment = false;
+         } else if (!inComment && text.charAt(i) == '<') {
+            inComment = true;
+         } else if (!inComment) {
+            result += text.charAt(i);
+         }
       }
-      System.out.print(text);
+      System.out.println(result);
    }
+        
+         
+         
+   
    
    public static int digitRange(int value) {
       int max = value % 10;
@@ -172,6 +178,15 @@ public class PracticeItProblems {
       // Point E
       return n;
    }
+   
+   public static boolean hasOddEven(int a, int b, int c) {
+      boolean even = false;
+      boolean odd = false;
+      even = (a%2==0 || b%2==0 || c%2==0);
+      odd = (a%2==1 || b%2==1 || c%2==1);
+      return even && odd;
+   }
+   
 }
 
 
