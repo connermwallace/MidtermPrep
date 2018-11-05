@@ -16,24 +16,15 @@ public class findMatching {
    
    public static String findMatching(String a, String b) {
       String result = "";
+      int stop = Math.max(a.length(), b.length());
       
-      if(a.length() > b.length()) {
-         for (int i = 0; i < a.length(); i++) {
-            if (i > b.length() -1 || a.charAt(i) != b.charAt(i)) {
+         for (int i = 0; i < stop; i++) {
+            if (i >= b.length() || i >= a.length() || a.charAt(i) != b.charAt(i)) {
                result += '.';
             } else if (a.charAt(i) == b.charAt(i)) {
                result += a.charAt(i);
             }
          }
-      } else {
-         for (int i = 0; i < b.length(); i++) {
-            if (i > a.length() -1 || a.charAt(i) != b.charAt(i)) {
-               result += '.';
-            } else if (a.charAt(i) == b.charAt(i)) {
-               result += a.charAt(i);
-            }
-         }
-      }
       return result;
    }
 }
